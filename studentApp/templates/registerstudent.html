@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}New student Registration{% endblock %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content%}
+    <div class="jumbotron">
+    
+
+{% if form.errors %}
+
+    <p>Your username and password should not match.Please try again </p>
+
+{% endif %}
+<h1 style="margin-left:120px;">New Student Registration</h1>
+<ul class="breadcrumb">
+           
+            <li><a class="btn btn-info" style="margin-left:5px;" href="{% url 'dashboard' %}">Dashboard</a></li>
+            <a href="{% url 'home' %}"><button class="btn btn-info" style="margin-left:5px;">Log Out</button></a>
+            
+        </ul>
+    <form class="form-group" method="POST">
+        {% csrf_token %}
+        <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                    
+                       {{ form.firstname|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                    
+                       {{ form.lastname|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                    
+                       {{ form.email|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                    
+                       {{ form.address_1|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                    
+                       {{ form.address_2|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                 <div class="col-md-6">
+                    <div class="form-group">
+                    
+                       {{ form.city|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                    
+                       {{ form.state|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                    
+                       {{ form.zip_code|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+               
+                    <div class="row padding-top-10" style="margin-top:10px;">
+                        <div class="col-md-2">
+                            <button class="btn btn-success" name="submit" type="submit"><i class="fas fa-database"></i>Submit</button>
+                        </div>
+                    </div>
+        
+
+    </form>
+
+
+</div>
+
+{% endblock %}

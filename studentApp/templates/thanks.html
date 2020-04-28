@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+{% block content%}
+    <div class="jumbotron">
+    <ul class="breadcrumb">
+            
+            <li><a class="btn btn-info" style="margin-left:5px;" href="{% url 'dashboard' %}">Dashboard</a></li>
+            <a href="{% url 'home' %}"><button class="btn btn-info" style="margin-left:5px;">Log Out</button></a>
+            
+        </ul>
+    
+                    
+        <h2>{{ user.username }} Thank you so much for the feedback</h2><br>
+        <h2>We really Appreciate</h2>
+   
+    </div>
+
+    {% endblock%}

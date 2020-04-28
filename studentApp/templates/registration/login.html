@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title%}Login Page{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+    <div class="jumbotron">
+
+{% if form.errors %}
+
+    <p>Your username and password should not match.Please try again </p>
+
+{% endif %}
+<h1 style="margin-left:250px;">login panel</h1>
+<ul class="breadcrumb">
+        <li><a class="btn btn-info" href="{% url 'home' %}" style="margin-left:10px;"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li><a class="btn btn-info" href="{% url 'register' %}" style="margin-left:10px;"><span class="glyphicon glyphicon-registration-mark"></span> Registration</a></li>
+        </ul>
+    <form action="{% url 'login' %}" class="form-group" method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <p>Don't have an account? Create <a href="/register">Here</a></p>
+        <button type="submit" class="btn btn-success">Login</button>
+        
+    </form>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Create an Account{% endblock %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content%}
+    <div class="jumbotron">
+    
+
+{% if form.errors %}
+
+    <p>Your username and password should not match.Please try again </p>
+
+{% endif %}
+<h1 style="margin-left:200px;">Create Account</h1>
+<ul class="breadcrumb">
+            <li><a class="btn btn-info" href="{% url 'home' %}">Home</a></li>
+            
+        </ul>
+    <form action="{% url 'register' %}" class="form-group" method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <p>Already have an account? Login <a href="/login">Here</a></p>
+        <button type="submit" class="btn btn-success">Register</button></a>
+
+    </form>
+
+
+</div>
+
+{% endblock %}

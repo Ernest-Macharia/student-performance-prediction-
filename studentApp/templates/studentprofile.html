@@ -1,0 +1,282 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>STUDENT PERFORMANCE PREDICTION SYSTEM</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
+    <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.min.js' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'dashboard' %}">SPPS</a>
+        </div>
+          <ul class="nav navbar-nav">
+          
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href='http://127.0.0.1:8000/admin'> Admin Login</span></a></li></ul>
+            <li><a href="{% url 'student' %}"> Student</a></li>
+            <li><a href="{% url 'student_profile' %}">Profile </a></li>
+            <li><a href="{% url 'feedback' %}">Feedback</a></li>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'home' %}"> Logout</a></li>
+        </ul>
+    </ul>
+
+      </div>
+
+
+    </nav>
+<body>
+    <div class="container" style="padding:10px;">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="col-md-12">
+              <ul class="breadcrumb">
+                      
+                      <li><a class="btn btn-info" style="margin-left:5px;" href="{% url 'dashboard' %}">Dashboard</a></li>
+                  </ul>
+              <h1 class="panel-title">Student Information</h1>
+            </div>
+           
+            <div class="panel-body">
+            
+              <form role="form" class="form-control" action="{% url 'profile' %}?student={{student.id}}" method="post">
+              {% csrf_token %}
+             
+              
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.school|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.sex|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.age|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.address|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.famsize|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                 <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.fedu|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.medu|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.mjob|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.fjob|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.reason|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.guardian|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.traveltime|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.studytime|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.failures|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.schoolsup|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.famsup|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.paid|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.activities|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.nursery|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.higher|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.internet|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.romantic|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.famrel|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.freetime|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.goout|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.dalc|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.walc|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.health|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.absences|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    
+                       {{ form.school|as_crispy_field }}
+                      
+                    </div>
+                  </div>
+                <div class="row padding-top-10" style="margin-top:10px;">
+                    <div class="col-md-2">
+                        <button class="btn btn-success" name="submit" type="submit">Submit</button>
+                    </div>
+                </div>
+              </form>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
