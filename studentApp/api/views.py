@@ -2,7 +2,7 @@ import pickle
 import json
 import copy
 import numpy as np
-from flask import render_template, request, redirect, url_for
+from django.shortcuts import render, request, redirect, url_for
 from . import api
 from studentApp.models import User, Student, StudentProfile
 from student.settings import BASE_DIR
@@ -19,15 +19,14 @@ with open(BASE_DIR + '/src/dataset/transformer.json', 'r') as file:
     transformer = json.loads(data)
 
 
-@api.route('/report', methods=["GET", "POST"])
-def report():
-    student_id = request.args.get('id')
-    student = Student.query.filter_by(id=student_id).first()
 
-    student_dict = copy.deepcopy(student.__dict__)
+def report(request, pk):
+    queryset = Student.objects.get(id=pk)
+
+    student_dict = copy.deepcopy(queryset.__dict__)
     student_dict.pop('_sa_instance_state')
 
-    student_profile = student.student_profile
+    student_profile = queryset.student_profile
     data = copy.deepcopy(student_profile.__dict__)
     data.pop('_sa_instance_state')
 
@@ -45,4 +44,4 @@ def report():
 
     result = classifier.predict(np.asarray([nominal], dtype=np.float32))
 
-    return render_template("statistics.html", result=result, student=student_dict)
+    return render("statistics.html", result=result, queryset=student_dict)

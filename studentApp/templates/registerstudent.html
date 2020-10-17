@@ -5,21 +5,10 @@
 
 
 {% block content%}
-    <div class="jumbotron">
     
+<h1 class="reg" style="margin-left:120px;">New Student Registration</h1>
 
-{% if form.errors %}
 
-    <p>Your username and password should not match.Please try again </p>
-
-{% endif %}
-<h1 style="margin-left:120px;">New Student Registration</h1>
-<ul class="breadcrumb">
-           
-            <li><a class="btn btn-info" style="margin-left:5px;" href="{% url 'dashboard' %}">Dashboard</a></li>
-            <a href="{% url 'home' %}"><button class="btn btn-info" style="margin-left:5px;">Log Out</button></a>
-            
-        </ul>
     <form class="form-group" method="POST">
         {% csrf_token %}
         <div class="row">

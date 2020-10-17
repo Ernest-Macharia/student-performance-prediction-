@@ -8,15 +8,8 @@
 
 
 {% block content%}
-    <div class="jumbotron">
-    <ul class="breadcrumb">
-            
-            <li><a class="btn btn-info" style="margin-left:5px;" href="{% url 'dashboard' %}">Dashboard</a></li>
-           <li><a href="{% url 'home' %}"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
-            
-        </ul>
     
-                    <h1 class="title">Provide FeedBack</h1><br>
+                    <h1 class="reg">Provide FeedBack</h1><br>
                 
                     <form action="{% url 'comment' %}" method="POST">
                         

@@ -1,60 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Student Performance Prediction System</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
-    <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.min.js' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="{% url 'dashboard' %}">SPPS</a>
-        </div>
-          <ul class="nav navbar-nav">
-          
-        <ul class="nav navbar-nav navbar-left">
-            <li><a href='http://127.0.0.1:8000/admin'> Admin Login</span></a></li></ul>
-            <li><a href="{% url 'student' %}"> Student</a></li>
-            <li><a href="{% url 'student_profile' %}">Profile </a></li>
-            <li><a href="{% url 'feedback' %}">Feedback</a></li>
-
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'home' %}"> Logout</a></li>
-        </ul>
-    </ul>
-
-      </div>
-
-
-    </nav>
-<body>
-    <h1 style="margin-left:200px;">Student Profile Page</h1>
+{% load crispy_forms_tags %}
+<style type="text/css">
+	.butn{
+		height: 75px;
+        width: 100%;
+	}
+</style>
+    <h1 class="reg" style="margin-left:200px;">Student Profile Page</h1>
         
-        <ul class="breadcrumb">
-            
-            <li><a class="btn btn-info" style="margin-left:5px;" href="{% url 'dashboard' %}">Dashboard</a></li>
-            <a href="{% url 'home' %}"><button class="btn btn-info" style="margin-left:5px;">Log Out</button></a>
-            
-        </ul>
        
 
        
        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-8">
-                    <a href="{% url 'profile' %}"><button class="btn btn-info">Add Profile</button></a>
-                    <a href="{% url 'get_student' %}"><button class="btn btn-info">View Profile</button></a>
-                    
+                <div class="col-md-6">
+                    <a href="{% url 'profile' %}"><button class="btn btn-success butn">Add Profile</button></a>
+                </div>
+                <div class="col-md-6">
+                    <a href="{% url 'get_student' %}"><button class="btn btn-success butn">Predict</button></a>
+                    </div>
                     
                 </div>
             </div>
         </div>
     
 
-</body>
-</html>
+{% endblock %}

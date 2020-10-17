@@ -130,17 +130,18 @@ def get_students(request):
 
 
 @login_required
-def get_student(request, student, profile):
-    context = {"get_student": Student.objects.all()}
+def get_student(request, pk):
+    queryset = StudentProfile.objects.get(id=pk)
 
-    student_id = request.GET.get('student')
-    student = Student.objects.filter(id=student_id).first()
-    data = copy.deepcopy(student.__dict__)
+    context = {
+        
+        'queryset': queryset
+    }
 
-    profile = student.student_profile
-    profile_dict = copy.deepcopy(profile)
+    
+    
 
-    return render(request, "student.html", context, student=data, profile=profile_dict)
+    return render(request, "student.html", context)
 
 
 @login_required

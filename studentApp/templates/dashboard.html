@@ -1,52 +1,15 @@
+
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Student Information System</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
-    <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.min.js' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="{% url 'dashboard' %}">SPPS</a>
-        </div>
-          <ul class="nav navbar-nav">
-          
-        <ul class="nav navbar-nav">
-            <li><a href='http://127.0.0.1:8000/admin'> Admin Login</span></a></li></ul>
-            <li><a href="{% url 'student' %}"> Student</a></li>
-            <li><a href="{% url 'student_profile' %}">Profile </a></li>
-            <li><a href="{% url 'feedback' %}">Feedback</a></li>
+{% load crispy_forms_tags %}
 
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'home' %}"> Logout</a></li>
-        </ul>
-    </ul>
+    
+    <style>
+         body {
+         	background-color: #FAEBD7;
+         }
 
-      </div>
+       </style>
 
-
-    </nav>
-<body>
-    <div class="container">
-        <div class="jumbotron">
-        <h2>STUDENT PERFORMANCE PREDICTION SYSTEM</h2>
-       
-        
-            
-            {% if user.is_authenticated %}
-        <h2 style="float:center;">Hello {{ user.username }}</h2>
-    {% else %}
-        <h2>Register or Login if you'd like to</h2>
-    {% endif %}
-        </div>
-        
-    </div>
-
-</body>
-</html>
+{% endblock %}

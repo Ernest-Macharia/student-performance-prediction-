@@ -10,13 +10,12 @@
     <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
     <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.min.js' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar-top-fixed.css' %}">
 </head>
 
 <body>
-<div class="loader">
-<div class="jumbotron text-center">
-    <h2>STUDENT PERFORMANCE PREDICTION SYSTEM</h2>
-</div><div class="content container">
+    {% include 'nav.html' %}
+<div class="content container">
 <div class="row">
                 <div class="col-md-8">
                     <div class="blog_posts">
@@ -29,5 +28,32 @@
 
 
 </div>
+<style>
+li{
+  list-style-type: none;
+    margin-left: 2em;
+    padding-left: 2em
+    padding: 10px;
+    font-weight: bold;
+}
+body{
+    background-color: #FAEBD7;
+}
+.reg{
+font-family: helvetica;
+    color: purple;
+    font-size: 50px;
+    text-align: center;
+    width: 100%;
+    text-shadow: 6px 6px 6px #c9c6c6;
+    display: block;
+    font-weight: bolder;
+}
+.thanks{
+    color: purple;
+}
+
+    </style>
 </body>
 </html>
+
